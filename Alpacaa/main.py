@@ -1,52 +1,34 @@
-import dotenv
-import discord
 import os
-from discord.ext import commands
-import datetime
 import discord.ext.tasks
+from discord.ext import commands
+import random
+import dotenv
 
-dotenv.load_dotenv(dotenv.find_dotenv('load_dotenv.env'))
-TOKEN = os.getenv('DISCORD_TOKEN')
+bot = commands.Bot(command_prefix="/", intents=discord.Intents.all())
+intents = discord.Intents.all()
+client = discord.Client(intents=intents)
 
-
-# id = 981881633932189716
-
-class MyClient(discord.Client):
-
-    async def on_ready(self):
-        print('Logged in as ', self.user)
-
-    async def on_message(self, message):
-        client.get_guild(981881633932189716)
-        channels = ["bot_test_room"]
-        if message.author == self.user:
-            print(f'Hello world im a bot {message.author} : {message.content}')
-            return
-
-        if message.content == 'ping':
-            await message.channel.send('pong')
-
-        elif message.content == 'hello':
-            await message.channel.send('helloww')
-
-        if str(message.channel in channels):
-            if message.content.find("!halo") != 1:
-                await message.channel.send("Haii")
+dotenv.load_dotenv(dotenv.find_dotenv("load_dotenv.env"))
+TOKEN = os.getenv("DISCORD_TOKEN")
 
 
-class BanFriend(commands.FlagConverter):
-    member: discord.Member
-    reason: str
-    days: int = 1
+@bot.event
+async def on_ready():
+    print('===================')
+    print(f'Logged in as {bot.user}(ID : {bot.user.name}')
+    print('===================')
 
 
-@commands.command()
-async def ban(ctx, *, flags: BanFriend):
-    plural = f'{flags.days} days' if flags.days != 1 else f'{flags.days} day'
-    await ctx.send(f'Banned {flags.member} for {flags.reason!r} (deleted {plural} worth of messages)')
+@bot.command()
+async def ping(ctx):
+    await ctx.send("Apa cok")
 
 
-intents = discord.Intents.default()
-intents.message_content = True
-client = MyClient(intents=intents)
-client.run(TOKEN)
+@bot.command()
+async def repeated(ctx, times: int):
+    content = "njir loop"
+    for i in range(times):
+        await ctx.send(content)
+
+
+bot.run(os.environ.get("DISCORD_TOKEN"))
