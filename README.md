@@ -1,5 +1,11 @@
 # Alpaca Discord Bot 
 
-## will have more user functions in next Update 
+## Features :
+### [ x ] Converter
+### [  ] Kick , Ban
+### [  ] Error handling (WIP)
+### [ x ] User Mention
+
 
 ### STATUS : WIP 
+### More features are coming in fews days 
