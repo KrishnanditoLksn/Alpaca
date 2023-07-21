@@ -5,7 +5,7 @@ from discord.ext import commands
 import random
 import dotenv
 
-bot = commands.Bot(command_prefix=";", intents=discord.Intents.all(), case_insensitive=True)
+bot = commands.Bot(command_prefix="!", intents=discord.Intents.all(), case_insensitive=True)
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
 
@@ -16,7 +16,7 @@ TOKEN = os.getenv("DISCORD_TOKEN")
 @bot.event
 async def on_ready():
     print('===================')
-    print(f'Logged in as {bot.user.id}(ID : {bot.user}')
+    print(f'Logged in as {bot.user}')
     print('===================')
 
     for filename in os.listdir("./Cogs"):
