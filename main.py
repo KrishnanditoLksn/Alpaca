@@ -19,9 +19,12 @@ async def on_ready():
     print(f'Logged in as {bot.user}')
     print('===================')
 
-    for filename in os.listdir("./Cogs"):
-        if filename.endswith(".py"):
-            await bot.load_extension(f"Cogs.{filename[:-3]}")
+    try:
+        for filename in os.listdir("./Cogs"):
+            if filename.endswith(".py"):
+                await bot.load_extension(f"Cogs.{filename[:-3]}")
+    except Exception:
+        print("Could not load cogs as extension")
 
 
 @bot.command(aliases=['p'])
