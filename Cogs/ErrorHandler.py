@@ -12,6 +12,12 @@ class HandleError(commands.Cog):
         if isinstance(error, commands.MemberNotFound):
             await ctx.send("Member not found !!")
 
+        if isinstance(error, commands.UserInputError):
+            await ctx.send("Wrong Input !!!")
+
+        if isinstance(error, commands.CommandInvokeError):
+            await ctx.send("Object has no attribute send")
+
 
 async def setup(bot: commands.Bot):
     await bot.add_cog(HandleError(bot))
