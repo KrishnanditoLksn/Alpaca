@@ -43,12 +43,10 @@ class Converter(commands.Cog):
         else:
             await ctx.send(f"Your guess is wrong  dude{ctx.author.display_name}")
 
-    # ERROR
-
     @commands.command()
-    async def subtract(self, number: int, ctx):
+    async def subtract(self, ctx, number: int):
         randoms = random.randint(0, 100)
-        await ctx.reply(number - randoms)
+        await ctx.send(number - randoms)
 
     @commands.command(aliases=["join"])
     async def joined(self, ctx, member: discord.Member):
@@ -58,13 +56,14 @@ class Converter(commands.Cog):
 
     # error
     @commands.command(aliases=['count'])
-    async def member_count(self, ctx):
+    async def member_count(self, ctx, member: discord.Member):
         total = 0
         members = discord.Member
-        for member in members.member_count:
+        for member in members.guild:
             member = total + 1
             await ctx.send(f"There are {member} members")
 
 
 async def setup(bot):
     await bot.add_cog(Converter(bot))
+    print("Loaded Converter extension")
