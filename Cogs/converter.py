@@ -29,25 +29,41 @@ class Converter(commands.Cog):
         choice = random.choice(botFav)
         await ctx.send(f"Hmm my favorite is...................{choice}")
 
-    @commands.command(aliases=['g'])
+    @commands.command(aliases=['g'], description="Unguessable")
     async def guess(self, ctx, x: int):
-        temp = random.randint(1, 100)
-        if x != temp:
-            await ctx.send(f"your gues is Wrong {ctx.author.display_name} haha, the correct answer is {temp} ")
+        temp = random.randint(1, 10)
+        if x == temp:
+            await ctx.send(f"your gues is Correct {ctx.author.display_name} haha")
 
+        elif x > temp:
+            await ctx.send(f"your gues is too big  {ctx.author.display_name} haha")
+
+        elif x < temp:
+            await ctx.send(f"your gues is too low  {ctx.author.display_name} haha")
         else:
-            await ctx.send(f"Your guess is true dude{ctx.author.display_name}")
+            await ctx.send(f"Your guess is wrong  dude{ctx.author.display_name}")
+
+    # ERROR
 
     @commands.command()
     async def subtract(self, number: int, ctx):
-        randoms = random.randint(0, 1000)
-        await ctx.send(number - randoms)
+        randoms = random.randint(0, 100)
+        await ctx.reply(number - randoms)
 
     @commands.command(aliases=["join"])
     async def joined(self, ctx, member: discord.Member):
         if member in member.guild.members:
             await ctx.send(
                 f"Member of {member.guild.name} with name {member.display_name} joined at {member.joined_at}")
+
+    # error
+    @commands.command(aliases=['count'])
+    async def member_count(self, ctx):
+        total = 0
+        members = discord.Member
+        for member in members.member_count:
+            member = total + 1
+            await ctx.send(f"There are {member} members")
 
 
 async def setup(bot):
