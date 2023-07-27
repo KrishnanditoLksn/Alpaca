@@ -17,6 +17,9 @@ class HandleError(commands.Cog):
         if isinstance(error, commands.CommandInvokeError):
             await ctx.send("Object has no attribute send")
 
+        if isinstance(error, commands.NotOwner):
+            await ctx.send("You are not owner of this bot !!!")
+
 
 async def setup(bot: commands.Bot):
     await bot.add_cog(HandleError(bot))

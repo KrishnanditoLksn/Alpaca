@@ -1,9 +1,7 @@
-import asyncio
 import os
 import discord.ext.tasks
-from discord.ext import commands
-import random
 import dotenv
+from discord.ext import commands
 
 bot = commands.Bot(command_prefix="!", intents=discord.Intents.all(), case_insensitive=True)
 intents = discord.Intents.all()
@@ -29,22 +27,12 @@ async def on_ready():
 
 @bot.command(aliases=['p'])
 async def ping(ctx):
-    await ctx.send("Apa cok")
+    await ctx.send(f"PengPeng is {bot.status}")
 
 
-def run():
-    @bot.command(aliases=['h'])
-    async def hello(ctx):
-        await ctx.send(f"Hello cok {client.user.mention}")
-
-    @bot.command()
-    async def repeated(ctx, times: int):
-        content = "im looping!!"
-        for i in range(times):
-            await ctx.send(content)
+@bot.command(aliases=['h'])
+async def hello(ctx):
+    await ctx.send(f"Hello cok {client.user.mention}")
 
 
 bot.run(os.environ.get("DISCORD_TOKEN"))
-
-if __name__ == "__main__":
-    run()

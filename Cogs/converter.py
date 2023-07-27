@@ -40,6 +40,7 @@ class Converter(commands.Cog):
 
         elif x < temp:
             await ctx.send(f"your gues is too low  {ctx.author.display_name} haha")
+
         else:
             await ctx.send(f"Your guess is wrong  dude{ctx.author.display_name}")
 
@@ -49,19 +50,17 @@ class Converter(commands.Cog):
         await ctx.send(number - randoms)
 
     @commands.command(aliases=["join"])
+    @commands.cooldown(1, 5)
     async def joined(self, ctx, member: discord.Member):
         if member in member.guild.members:
             await ctx.send(
                 f"Member of {member.guild.name} with name {member.display_name} joined at {member.joined_at}")
 
-    # error
-    @commands.command(aliases=['count'])
-    async def member_count(self, ctx, member: discord.Member):
-        total = 0
-        members = discord.Member
-        for member in members.guild:
-            member = total + 1
-            await ctx.send(f"There are {member} members")
+    @commands.command()
+    async def repeated(self, ctx, times: int):
+        """im looping!!"""
+        for i in range(times):
+            await ctx.send(f"I'm looping {ctx.author.mention}")
 
 
 async def setup(bot):

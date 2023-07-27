@@ -21,3 +21,4 @@ class AlpacaInfo(commands.Cog):
 
 async def setup(bot: commands.Bot):
     await bot.add_cog(AlpacaInfo(bot))
+    print("Loaded core information extension")
