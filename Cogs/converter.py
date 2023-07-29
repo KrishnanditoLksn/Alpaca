@@ -62,6 +62,24 @@ class Converter(commands.Cog):
         for i in range(times):
             await ctx.send(f"I'm looping {ctx.author.mention}")
 
+    @commands.command()
+    async def pam(self, ctx, member: discord.Member):
+
+        for looper in range(3):
+            if member in member.guild.members:
+                await ctx.send(f"{member.display_avatar}")
+
+    @commands.command()
+    async def troll(self, ctx, choice: int):
+        link = "https://youtu.be/ZRtdQ81jPUQ"
+        if choice == 1:
+            await ctx.send(f"The best of the best{link}")
+
+        elif choice == 2:
+            await ctx.send("yodah")
+        else:
+            await ctx.send("Invalid cok")
+
 
 async def setup(bot):
     await bot.add_cog(Converter(bot))
