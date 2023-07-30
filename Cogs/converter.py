@@ -24,13 +24,13 @@ class Converter(commands.Cog):
             await ctx.send(f"Hmm{member.display_name} not found :(")
 
     @commands.command(aliases=['fav'])
-    async def favArtist(self, ctx):
+    async def favoriteArtist(self, ctx):
         botFav = ["Yoasobi", "Imase", "Deny Caknan", "JVKE"]
         choice = random.choice(botFav)
         await ctx.send(f"Hmm my favorite is...................{choice}")
 
-    @commands.command(aliases=['g'], description="Unguessable")
-    async def guess(self, ctx, x: int):
+    @commands.command(aliases=['guess'], description="Unguessable")
+    async def randomGuessNumber(self, ctx, x: int):
         temp = random.randint(1, 10)
         if x == temp:
             await ctx.send(f"your gues is Correct {ctx.author.display_name} haha")
@@ -76,7 +76,15 @@ class Converter(commands.Cog):
             await ctx.send(f"The best of the best{link}")
 
         elif choice == 2:
-            await ctx.send("yodah")
+            gif = ["https://cdn.discordapp.com/attachments/981882727852802058/1135209597636984832/8847-cr7-siuu.gif"]
+            randomDescription = ["Siuuu", "Never gonna give you...", "Cielah bucinnn", "huu Wibu", "Rapsodiiii"]
+
+            for looper in range(5):
+                embeds = discord.Embed(colour=(discord.Colour.random()),
+                                       description=f"{random.choice(randomDescription)},"f"{ctx.author.mention}")
+                embeds.set_image(url=random.choice(gif))
+                await ctx.send(embed=embeds)
+
         else:
             await ctx.send("Invalid cok")
 
