@@ -20,6 +20,9 @@ class HandleError(commands.Cog):
         if isinstance(error, commands.NotOwner):
             await ctx.send("You are not owner of this bot !!!")
 
+        if isinstance(error, commands.UserInputError):
+            await ctx.send("Input error !!")
+
 
 async def setup(bot: commands.Bot):
     await bot.add_cog(HandleError(bot))
