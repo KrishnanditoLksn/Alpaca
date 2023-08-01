@@ -70,13 +70,17 @@ class Converter(commands.Cog):
                 await ctx.send(f"{member.display_avatar}")
 
     @commands.command()
+    @commands.cooldown(2, 5)
     async def troll(self, ctx, choice: int):
         link = "https://youtu.be/ZRtdQ81jPUQ"
         if choice == 1:
             await ctx.send(f"The best of the best{link}")
 
         elif choice == 2:
-            gif = ["https://cdn.discordapp.com/attachments/981882727852802058/1135209597636984832/8847-cr7-siuu.gif"]
+            gif = ["https://cdn.discordapp.com/attachments/981882727852802058/1135209597636984832/8847-cr7-siuu.gif",
+                   "https://cdn.discordapp.com/attachments/1114027418118795387/1135954604538994838/rickroll.gif",
+                   "https://cdn.discordapp.com/attachments/1119903704561238157/1135957132240507031/oshi-no-ko-skill"
+                   "-issue.gif"]
             randomDescription = ["Siuuu", "Never gonna give you...", "Cielah bucinnn", "huu Wibu", "Rapsodiiii"]
 
             for looper in range(5):
@@ -87,6 +91,19 @@ class Converter(commands.Cog):
 
         else:
             await ctx.send("Invalid cok")
+
+    """"@commands.command(aliases=['ngp'])
+    async def ngapain(self, ctx, member: discord.Member):
+
+        if member in member.guild:
+            await ctx.send(f"Hmmmmm {member.display_name} ternyata  {member.premium_since}")
+
+        else:
+            await ctx.send(f"Yahh {member.name} ga ada")"""""
+
+    @commands.command(aliases=['count'])
+    async def memberCount(self, ctx):
+        await ctx.send(ctx.guild.member_count)
 
 
 async def setup(bot):
