@@ -3,9 +3,9 @@
 ## Features :
   ### [ x ] Converter
   ### [  ] Kick , Ban
-  ### [  ] Error handling (WIP)
+  ### [ x ] Error handling 
  ### [ x ] User Mention
 
 
   ### STATUS : WIP 
-  ### More features are coming in fews days , thank youu
+  ### More features are coming in fews days , thank you
