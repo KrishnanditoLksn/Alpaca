@@ -25,8 +25,8 @@ class Converter(commands.Cog):
 
     @commands.command(aliases=['fav'])
     async def favoriteArtist(self, ctx):
-        botFav = ["Yoasobi", "Imase", "Deny Caknan", "JVKE"]
-        choice = random.choice(botFav)
+        bot_fav = ["Yoasobi", "Imase", "Deny Caknan", "JVKE"]
+        choice = random.choice(bot_fav)
         await ctx.send(f"Hmm my favorite is...................{choice}")
 
     @commands.command(aliases=['guess'], description="Unguessable")
@@ -81,11 +81,11 @@ class Converter(commands.Cog):
                    "https://cdn.discordapp.com/attachments/1114027418118795387/1135954604538994838/rickroll.gif",
                    "https://cdn.discordapp.com/attachments/1119903704561238157/1135957132240507031/oshi-no-ko-skill"
                    "-issue.gif"]
-            randomDescription = ["Siuuu", "Never gonna give you...", "Cielah bucinnn", "huu Wibu", "Rapsodiiii"]
+            random_description = ["Siuuu", "Never gonna give you...", "Cielah bucinnn", "huu Wibu", "Rapsodiiii"]
 
-            for looper in range(5):
+            for i in range(5):
                 embeds = discord.Embed(colour=(discord.Colour.random()),
-                                       description=f"{random.choice(randomDescription)},"f"{ctx.author.mention}")
+                                       description=f"{random.choice(random_description)} {ctx.author.mention}")
                 embeds.set_image(url=random.choice(gif))
                 await ctx.send(embed=embeds)
 
@@ -104,6 +104,31 @@ class Converter(commands.Cog):
     @commands.command(aliases=['count'])
     async def memberCount(self, ctx):
         await ctx.send(ctx.guild.member_count)
+
+    @commands.command(aliases=['gf'])
+    async def randomGirlFriendAsking(self, ctx, choice: str):
+        girl_friend_list = ['Tatsumaki', 'Kaori', 'Rick Astley', 'Saitama', 'Shizuka']
+        love_emoji = '👿'
+
+        if choice.__eq__('yes'):
+            await ctx.send(random.choice(girl_friend_list))
+
+        else:
+            message = await ctx.send(f" boyfriend with {girl_friend_list[2]}")
+            await message.add_reaction(love_emoji)
+
+    @commands.command(aliases=['suhu'])
+    async def digitalThermometerConverter(self, ctx, suhu: int):
+        celsius_fahrenheit = (suhu * 9 / 5) + 32
+        """buat converter suhu dengan meminta input user bertipe int """
+        wrong_emoji = '❌'
+
+        if suhu < 0:
+            message = await ctx.send("Hmm think again!!")
+            await message.add_reaction(wrong_emoji)
+
+        else:
+            await ctx.send(f"Celcius -> Fahrenheit : {celsius_fahrenheit}")
 
 
 async def setup(bot):
