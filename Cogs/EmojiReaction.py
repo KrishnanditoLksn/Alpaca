@@ -19,6 +19,12 @@ class MemberEmojiReaction(commands.Cog):
         emoji = '\N{THUMBS UP SIGN}'
         await message.add_reaction(emoji)
 
+    @commands.command(aliases=['sad'])
+    async def sadMember(self, ctx):
+        message = await ctx.send("Dont be sad bro !!!")
+        sad_emoji = "🙁"
+        await message.add_reaction(sad_emoji)
+
 
 async def setup(bot: commands.Bot):
     await bot.add_cog(MemberEmojiReaction(bot))
