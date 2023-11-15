@@ -25,6 +25,11 @@ async def on_ready():
         print("Could not load cogs as extension")
 
 
+@bot.command(aliases=['wel'])
+async def welcome(ctx):
+    await ctx.reply(f"Welcome {client.user.display_name} ! to start!!")
+
+
 @bot.command(aliases=['p'])
 async def ping(ctx):
     await ctx.send(f"PengPeng is {bot.status}")
@@ -32,7 +37,7 @@ async def ping(ctx):
 
 @bot.command(aliases=['h'])
 async def hello(ctx):
-    await ctx.send(f"Hello cok {client.user.mention}")
+    await ctx.reply(f"Hello cok {client.user.mention}")
 
 
 bot.run(os.environ.get("DISCORD_TOKEN"))

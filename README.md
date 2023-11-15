@@ -1,11 +1,12 @@
-# Alpaca Discord Bot 
+# Alpaca Discord Bot
 
-## Features :
-  ### [ x ] Converter
-  ### [  ] Kick , Ban
-  ### [ x ] Error handling 
- ### [ x ] User Mention
+## Features:
+- [x] Converter
+- [ ] Kick, Ban
+- [x] Error Handling
+- [x] User Mention
+- [x] Emoji Reaction
 
+## Status: Work in Progress (WIP)
 
-  ### STATUS : WIP 
-  ### More features are coming in fews days , thank you
+More features are coming in the next few months. Thank you for your support!

@@ -1,6 +1,9 @@
+import aiohttp
 import discord
 from discord.ext import commands
 import random
+from requests import get
+import json
 
 
 class Converter(commands.Cog):
@@ -128,8 +131,9 @@ class Converter(commands.Cog):
             await message.add_reaction(wrong_emoji)
 
         else:
-            await ctx.send(f"Celcius -> Fahrenheit : {celsius_fahrenheit}")
+            await ctx.send(f"Celsius -> Fahrenheit : {celsius_fahrenheit}")
 
+    """sample"""
 
 async def setup(bot):
     await bot.add_cog(Converter(bot))

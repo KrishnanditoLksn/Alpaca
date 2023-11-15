@@ -1,11 +1,9 @@
 import random
-
 import discord
 from discord.ext import commands
-from discord import app_commands
 
 
-class randomEmbeds(commands.Cog):
+class RandomEmbeds(commands.Cog):
 
     # fill  information about Alpacaa bot
 
@@ -17,13 +15,17 @@ class randomEmbeds(commands.Cog):
         embed1 = discord.Embed(
             title="Information",
             colour=(discord.Colour.random()),
-            description=f"Hey hey this is bot"
+            description="Hey hey this is bot"
         )
-        embed1.set_thumbnail(url="https://cdn.discordapp.com/attachments/1131584535063187586/1135220891748401183/alpa"
-                                 ".png")
+        embed1.set_thumbnail(
+            url="https://cdn.discordapp.com/attachments/1131584535063187586/1135220891748401183/alpa.png")
         await ctx.send(embed=embed1)
+
+    @commands.command(aliases=['ask2'])
+    async def askAuthor(self, ctx):
+        await ctx.send()
 
 
 async def setup(bot: commands.Bot):
-    await bot.add_cog(randomEmbeds(bot))
+    await bot.add_cog(RandomEmbeds(bot))
     print("Loaded Embeds extension")
