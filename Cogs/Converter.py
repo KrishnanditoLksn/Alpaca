@@ -133,7 +133,6 @@ class Converter(commands.Cog):
         else:
             await ctx.send(f"Celsius -> Fahrenheit : {celsius_fahrenheit}")
 
-    """sample"""
 
 async def setup(bot):
     await bot.add_cog(Converter(bot))

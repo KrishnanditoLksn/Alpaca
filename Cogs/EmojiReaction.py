@@ -25,6 +25,12 @@ class MemberEmojiReaction(commands.Cog):
         sad_emoji = "🙁"
         await message.add_reaction(sad_emoji)
 
+    @commands.command(aliases=['hepi'])
+    async def happyMember(self, ctx):
+        message = await ctx.send("Eurekaaaa")
+        happy_emoji = "😊"
+        await message.add_reaction(happy_emoji)
+
 
 async def setup(bot: commands.Bot):
     await bot.add_cog(MemberEmojiReaction(bot))
