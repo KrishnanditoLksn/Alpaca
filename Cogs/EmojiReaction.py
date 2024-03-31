@@ -14,19 +14,19 @@ class MemberEmojiReaction(commands.Cog):
                            f"Welcome to {guild.name}")
 
     @commands.command(aliases=['ok'])
-    async def okeSip(self, ctx):
+    async def oke_sip(self, ctx):
         message = await ctx.send("yo")
         emoji = '\N{THUMBS UP SIGN}'
         await message.add_reaction(emoji)
 
     @commands.command(aliases=['sad'])
-    async def sadMember(self, ctx):
+    async def sad_member(self, ctx):
         message = await ctx.send("Dont be sad bro !!!")
         sad_emoji = "🙁"
         await message.add_reaction(sad_emoji)
 
     @commands.command(aliases=['hepi'])
-    async def happyMember(self, ctx):
+    async def happy_member(self, ctx):
         message = await ctx.send("Eurekaaaa")
         happy_emoji = "😊"
         await message.add_reaction(happy_emoji)

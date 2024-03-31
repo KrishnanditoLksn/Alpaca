@@ -2,8 +2,6 @@ import aiohttp
 import discord
 from discord.ext import commands
 import random
-from requests import get
-import json
 
 
 class Converter(commands.Cog):
@@ -27,13 +25,13 @@ class Converter(commands.Cog):
             await ctx.send(f"Hmm{member.display_name} not found :(")
 
     @commands.command(aliases=['fav'])
-    async def favoriteArtist(self, ctx):
+    async def favorite_artist(self, ctx):
         bot_fav = ["Yoasobi", "Imase", "Deny Caknan", "JVKE"]
         choice = random.choice(bot_fav)
         await ctx.send(f"Hmm my favorite is...................{choice}")
 
     @commands.command(aliases=['guess'], description="Unguessable")
-    async def randomGuessNumber(self, ctx, x: int):
+    async def random_guess_number(self, ctx, x: int):
         temp = random.randint(1, 10)
         if x == temp:
             await ctx.send(f"your gues is Correct {ctx.author.display_name} haha")
@@ -94,15 +92,6 @@ class Converter(commands.Cog):
 
         else:
             await ctx.send("Invalid cok")
-
-    """"@commands.command(aliases=['ngp'])
-    async def ngapain(self, ctx, member: discord.Member):
-
-        if member in member.guild:
-            await ctx.send(f"Hmmmmm {member.display_name} ternyata  {member.premium_since}")
-
-        else:
-            await ctx.send(f"Yahh {member.name} ga ada")"""""
 
     @commands.command(aliases=['count'])
     async def memberCount(self, ctx):
