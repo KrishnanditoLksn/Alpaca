@@ -1,7 +1,6 @@
-import aiohttp
+import random
 import discord
 from discord.ext import commands
-import random
 
 
 class Converter(commands.Cog):
@@ -60,15 +59,15 @@ class Converter(commands.Cog):
     @commands.command()
     async def repeated(self, ctx, times: int):
         """im looping!!"""
-        for i in range(times):
+        for _ in range(times):
             await ctx.send(f"I'm looping {ctx.author.mention}")
 
     @commands.command()
     async def pam(self, ctx, member: discord.Member):
 
-        for looper in range(3):
+        for _ in range(3):
             if member in member.guild.members:
-                await ctx.send(f"{member.display_avatar}")
+                await ctx.send(f"Hello {member.display_name} {member.display_avatar}")
 
     @commands.command()
     @commands.cooldown(2, 5)
@@ -84,7 +83,7 @@ class Converter(commands.Cog):
                    "-issue.gif"]
             random_description = ["Siuuu", "Never gonna give you...", "Cielah bucinnn", "huu Wibu", "Rapsodiiii"]
 
-            for i in range(5):
+            for _ in range(5):
                 embeds = discord.Embed(colour=(discord.Colour.random()),
                                        description=f"{random.choice(random_description)} {ctx.author.mention}")
                 embeds.set_image(url=random.choice(gif))
