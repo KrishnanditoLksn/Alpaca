@@ -37,7 +37,7 @@ async def ping(ctx):
 
 @bot.command(aliases=['h'])
 async def hello(ctx):
-    await ctx.reply(f"Hello cok {client.user.mention}")
+    await ctx.reply(f"Hello {client.user.mention}")
 
 
 bot.run(os.environ.get("DISCORD_TOKEN"))

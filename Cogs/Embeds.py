@@ -12,7 +12,7 @@ class RandomEmbeds(commands.Cog):
     @commands.command(aliases=['ask1'])
     async def askBot(self, ctx):
         embed1 = discord.Embed(
-            title="Information",
+            title="Alpaca",
             colour=(discord.Colour.random()),
             description="Hey hey this is bot"
         )
