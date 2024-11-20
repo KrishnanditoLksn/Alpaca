@@ -1,10 +1,9 @@
 import discord
 from discord.ext import commands
+from scripts.regsetup import description
 
 
 class RandomEmbeds(commands.Cog):
-
-    # fill  information about Alpacaa bot
 
     def __init__(self, bot: commands.Bot):
         self.bot = bot
@@ -23,6 +22,14 @@ class RandomEmbeds(commands.Cog):
     @commands.command(aliases=['ask2'])
     async def askAuthor(self, ctx):
         await ctx.send()
+
+    @commands.command(aliases=['ask3'])
+    async def displayYourEmbed(self, ctx, member: discord.Member):
+        embeds = discord.Embed(
+            title=f"Semangatttt : {member.display_name}",
+            description=f" Anjay lagi  : {member.activity.name}"
+        )
+        await ctx.send(embed=embeds)
 
 
 async def setup(bot: commands.Bot):
