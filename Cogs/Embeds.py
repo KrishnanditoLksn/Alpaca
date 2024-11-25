@@ -1,6 +1,5 @@
 import discord
 from discord.ext import commands
-from scripts.regsetup import description
 
 
 class RandomEmbeds(commands.Cog):
