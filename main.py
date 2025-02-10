@@ -7,7 +7,7 @@ bot = commands.Bot(command_prefix="!", intents=discord.Intents.all(), case_insen
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
 
-dotenv.load_dotenv(dotenv.find_dotenv("Alpacaa/load_dotenv.env"))
+dotenv.load_dotenv(dotenv.find_dotenv("Alpaca/load_dotenv.env"))
 TOKEN = os.getenv("DISCORD_TOKEN")
 
 
