@@ -78,14 +78,14 @@ class Converter(commands.Cog):
 
         elif choice == 2:
             gif = ["https://cdn.discordapp.com/attachments/981882727852802058/1135209597636984832/8847-cr7-siuu.gif",
-                   "https://cdn.discordapp.com/attachments/1114027418118795387/1135954604538994838/rickroll.gif",
-                   "https://cdn.discordapp.com/attachments/1119903704561238157/1135957132240507031/oshi-no-ko-skill"
-                   "-issue.gif"]
+                    "https://cdn.discordapp.com/attachments/1114027418118795387/1135954604538994838/rickroll.gif",
+                    "https://cdn.discordapp.com/attachments/1119903704561238157/1135957132240507031/oshi-no-ko-skill"
+                    "-issue.gif"]
             random_description = ["Siuuu", "Never gonna give you...", "Cielah bucinnn", "huu Wibu", "Rapsodiiii"]
 
             for _ in range(5):
                 embeds = discord.Embed(colour=(discord.Colour.random()),
-                                       description=f"{random.choice(random_description)} {ctx.author.mention}")
+                                        description=f"{random.choice(random_description)} {ctx.author.mention}")
                 embeds.set_image(url=random.choice(gif))
                 await ctx.send(embed=embeds)
 
